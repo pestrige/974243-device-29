@@ -1,7 +1,7 @@
 # Личный проект «Девайс»
 
 * Студент: [Dmitry Korovin](https://up.htmlacademy.ru/htmlcss/29/user/974243).
-* Наставник: `Неизвестно`.
+* Наставник: [Андрей Гинтер](https://htmlacademy.ru/profile/id781369).
 
 ---
 
