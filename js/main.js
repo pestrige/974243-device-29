@@ -6,7 +6,13 @@
 
 //submenu on jQuery
 $('.submenu-btn').on('click', function () {
-  $(this).toggleClass('btn-rotate');
+	$(this).toggleClass('btn-rotate');
+	const $submenuLink = $('.submenu__link');
+	if ($submenuLink.attr('tabindex')) {
+		$submenuLink.removeAttr('tabindex');
+	} else {
+		$submenuLink.attr('tabindex', -1);
+	}
   $('.submenu').toggleClass('submenu--hide');
 });
 
@@ -23,44 +29,66 @@ $(document).ready(function(){
 });
 
 //service slider on jQuery
-$('.services__nav-link').on('click', function (e) {
+const $navLink = $('.services__nav-link');
+const $deliveryContent = $('#delivery-content');
+const $warrantyContent = $('#warranty-content');
+const $creditContent = $('#credit-content');
+
+
+$navLink.on('click', function (e) {
 	e.preventDefault();
 	$(this).parent().addClass('services__nav-item--active');
-	$('.services__nav-link').not(this).parent().removeClass('services__nav-item--active');
+	$navLink.not(this).parent().removeClass('services__nav-item--active');
 });
 
 $('#delivery-link').on('click', function () {
-	$('#delivery-content').addClass('services__content-item--active');
-	$('#warranty-content').removeClass('services__content-item--active');
-	$('#credit-content').removeClass('services__content-item--active');
+	$deliveryContent.addClass('services__content-item--active');
+	$warrantyContent.removeClass('services__content-item--active');
+	$creditContent.removeClass('services__content-item--active');
 });
 
 $('#warranty-link').on('click', function () {
-	$('#warranty-content').addClass('services__content-item--active');
-	$('#delivery-content').removeClass('services__content-item--active');
-	$('#credit-content').removeClass('services__content-item--active');
+	$warrantyContent.addClass('services__content-item--active');
+	$deliveryContent.removeClass('services__content-item--active');
+	$creditContent.removeClass('services__content-item--active');
 });
 
 $('#credit-link').on('click', function () {
-	$('#credit-content').addClass('services__content-item--active');
-	$('#delivery-content').removeClass('services__content-item--active');
-	$('#warranty-content').removeClass('services__content-item--active');
+	$creditContent.addClass('services__content-item--active');
+	$deliveryContent.removeClass('services__content-item--active');
+	$warrantyContent.removeClass('services__content-item--active');
 });
+
+//popup form
+const $modalForm = $('.modal-form');
+const $modalMap = $('.modal-map');
+const $popupForm = $('.popup-form');
+const $popupMap = $('.popup-map');
+
 
 // popup form show
 $('.contacts__btn').on('click', function (e) {
 	e.preventDefault();
-  $('.modal-form').addClass('modal-form--show');
+	$modalForm.addClass('modal-form--show');
+	$popupForm.addClass('popup--show');
 });
 
 // popup map show
 $('.about__map-link').on('click', function (e) {
 	e.preventDefault();
-  $('.modal-map').addClass('modal-map--show');
+	$modalMap.addClass('modal-map--show');
+	$popupMap.addClass('popup--show');
 });
 
 // popup hide
 $('.modal__close').on('click', function () {
-	$('.modal-form').removeClass('modal-form--show');
-	$('.modal-map').removeClass('modal-map--show');
+	$modalForm.removeClass('modal-form--show');
+	$modalMap.removeClass('modal-map--show');
+	$popupForm.removeClass('popup-form--show');
+});
+
+// popup hide from overlay click
+$('.modal-overlay').on('click', function () {
+	$modalForm.removeClass('modal-form--show');
+	$modalMap.removeClass('modal-map--show');
 });
