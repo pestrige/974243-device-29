@@ -5,9 +5,9 @@
 // };
 
 //submenu on jQuery
+const $submenuLink = $('.submenu__link');
 $('.submenu-btn').on('click', function () {
 	$(this).toggleClass('btn-rotate');
-	const $submenuLink = $('.submenu__link');
 	if ($submenuLink.attr('tabindex')) {
 		$submenuLink.removeAttr('tabindex');
 	} else {
