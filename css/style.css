@@ -1742,7 +1742,8 @@ button.search__btn:active {
   padding-left: 42px;
   font-size: 14px;
   line-height: 19px;
-  cursor: pointer;
+	cursor: pointer;
+	transition: opacity 0.3s;
 }
 
 .filter__checkbox+.filter__label::before {
@@ -1752,7 +1753,8 @@ button.search__btn:active {
   left: 0;
   width: 24px;
   height: 24px;
-  border: 2px solid var(--black);
+	border: 2px solid var(--black);
+	transition: opacity 0.3s;
 }
 
 .filter__checkbox+.filter__label::after {
@@ -1773,6 +1775,11 @@ button.search__btn:active {
   opacity: 1;
 }
 
+.filter__checkbox+.filter__label:hover::before,
+.filter__checkbox:checked+.filter__label:hover::after {
+	opacity: 0.6;
+}
+
 .filter__radio+.filter__label::before {
   content: "";
   position: absolute;
@@ -1781,7 +1788,8 @@ button.search__btn:active {
   width: 24px;
   height: 24px;
   border: 2px solid var(--black);
-  border-radius: 50%;
+	border-radius: 50%;
+	transition: opacity 0.3s;
 }
 
 .filter__radio+.filter__label::after {
@@ -1799,6 +1807,11 @@ button.search__btn:active {
 
 .filter__radio:checked+.filter__label::after {
   opacity: 1;
+}
+
+.filter__radio+.filter__label:hover::before,
+.filter__radio:checked+.filter__label:hover::after {
+	opacity: 0.6;
 }
 
 .filter__btn {
