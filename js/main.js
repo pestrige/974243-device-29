@@ -6,8 +6,9 @@
 
 //submenu on jQuery
 const $submenuLink = $('.submenu__link');
-$('.submenu-btn').on('click', function () {
-	$(this).toggleClass('btn-rotate');
+$('.submenu-interactive').on('click', function (e) {
+	e.preventDefault();
+	$('.submenu-btn').toggleClass('btn-rotate');
 	if ($submenuLink.attr('tabindex')) {
 		$submenuLink.removeAttr('tabindex');
 	} else {
