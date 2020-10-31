@@ -17,8 +17,8 @@
       </a>
       <div class="top-links">
         <form class="search">
-          <div class="search__icon"></div>
-          <input class="search__field" type="text" placeholder="Поиск по сайту">
+          <label for="search" class="search__icon"></label>
+          <input class="search__field" id="search" type="text" placeholder="Поиск по сайту">
           <button class="search__btn" type="submit">Найти</button>
         </form>
         <div class="links-wrapper">
@@ -42,12 +42,33 @@
 
       </div>
       <nav class="main-nav main-nav--inner-page">
-        <ul class="main-nav__list">
-          <li class="main-nav__item">
-            <a href="catalog.html" class="main-nav__link submenu-interactive">
+        <ul class="main-nav__list main-nav__list--inner-page">
+          <li class="main-nav__item submenu-interactive">
+            <a href="#" class="main-nav__link">
               Каталог товаров
-              <span class="submenu-btn"></span>
             </a>
+            <div class="submenu__wrapper">
+              <ul class="submenu">
+                <li class="submenu__item">
+                  <a class="submenu__link link" href="#"> Виртуальная реальность</a>
+                </li>
+                <li class="submenu__item">
+                  <a class="submenu__link link" href="#">Фитнес-браслеты</a>
+                </li>
+                <li class="submenu__item">
+                  <a class="submenu__link link" href="#">Квадрокоптер</a>
+                </li>
+                <li class="submenu__item">
+                  <a class="submenu__link link" href="catalog.html">Моноподы для селфи</a>
+                </li>
+                <li class="submenu__item">
+                  <a class="submenu__link link" href="#">Умные часы</a>
+                </li>
+                <li class="submenu__item submenu__link--wrap">
+                  <a class="submenu__link link" href="#">Экшн-камеры</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="main-nav__item">
             <a href="#" class="main-nav__link">Доставка</a>
@@ -60,28 +81,6 @@
           </li>
         </ul>
       </nav>
-    </div>
-    <div class="submenu__wrapper submenu__wrapper--inner-page">
-      <ul class="submenu submenu--hide">
-        <li class="submenu__item">
-          <a class="submenu__link link" href="#" tabindex="-1"> Виртуальная реальность</a>
-        </li>
-        <li class="submenu__item">
-          <a class="submenu__link link" tabindex="-1">Моноподы для селфи</a>
-        </li>
-        <li class="submenu__item">
-          <a class="submenu__link link" href="#" tabindex="-1">Экшн-камеры</a>
-        </li>
-        <li class="submenu__item">
-          <a class="submenu__link link" href="#" tabindex="-1">Фитнес-браслеты</a>
-        </li>
-        <li class="submenu__item submenu__link--wrap">
-          <a class="submenu__link link" href="#" tabindex="-1">Умные часы</a>
-        </li>
-        <li class="submenu__item">
-          <a class="submenu__link link" href="#" tabindex="-1">Квадрокоптер</a>
-        </li>
-      </ul>
     </div>
   </header>
 
@@ -130,7 +129,7 @@
               <a href="#" class="sorting__link">
                 По популярности
               </a>
-            </li>
+						</li>
           </ul>
           <div class="sorting__buttons-wrapper">
             <button class="sorting__btn sorting__btn--up" type="button" aria-label="Сортировка по возрастанию"></button>
@@ -204,8 +203,8 @@
               </a>
               <span class="product__price">1 100 руб.</span>
               <div class="product__buttons">
-                <button class="btn product__btn" type="button">В корзину</button>
-                <button class="product__favorite" type="button">Добавить к сравнению</button>
+                <button class="btn product__btn" tabindex="0" type="button">В корзину</button>
+                <button class="product__favorite" tabindex="0" type="button">Добавить к сравнению</button>
               </div>
             </article>
           </li>

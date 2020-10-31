@@ -1,22 +1,3 @@
-// submenu on Vanila JS 
-// document.querySelector('.submenu-btn').onclick = function () {
-//   this.classList.toggle('btn-rotate');
-//   document.querySelector('.submenu').classList.toggle('submenu--hide');
-// };
-
-//submenu on jQuery
-const $submenuLink = $('.submenu__link');
-$('.submenu-interactive').on('click', function (e) {
-	e.preventDefault();
-	$('.submenu-btn').toggleClass('btn-rotate');
-	if ($submenuLink.attr('tabindex')) {
-		$submenuLink.removeAttr('tabindex');
-	} else {
-		$submenuLink.attr('tabindex', -1);
-	}
-  $('.submenu').toggleClass('submenu--hide');
-});
-
 //main-slider slick slider plugin
 $(document).ready(function(){
 	$('.slider__list').slick({
@@ -36,8 +17,8 @@ const $warrantyContent = $('#warranty-content');
 const $creditContent = $('#credit-content');
 
 
-$navLink.on('click', function (e) {
-	e.preventDefault();
+$navLink.on('click', function (evt) {
+	evt.preventDefault();
 	$(this).parent().addClass('services__nav-item--active');
 	$navLink.not(this).parent().removeClass('services__nav-item--active');
 });
@@ -60,36 +41,45 @@ $('#credit-link').on('click', function () {
 	$warrantyContent.removeClass('services__content-item--active');
 });
 
-//popup form
-const $modalForm = $('.modal-form');
-const $modalMap = $('.modal-map');
-const $popupForm = $('.popup-form');
-const $popupMap = $('.popup-map');
+//popup
+const overlay = document.querySelector('.modal-overlay'),
+			popupForm = document.querySelector('.popup-form'),
+			loginInput = popupForm.querySelector('.popup-form__name-field'),
+			closeFormBtn = popupForm.querySelector('.modal__close'),
+			popupMap = document.querySelector('.popup-map'),
+			closeMapBtn = popupMap.querySelector('.modal__close'),
+			contactsBtn = document.querySelector('.contacts__btn'),
+			mapBtn = document.querySelector('.about__map-link');
 
+// popup form
+contactsBtn.onclick = function (evt) {
+	evt.preventDefault();
+	overlay.classList.add('modal-overlay--show');
+	popupForm.classList.add('popup--show');
+	loginInput.focus();
+};
 
-// popup form show
-$('.contacts__btn').on('click', function (e) {
-	e.preventDefault();
-	$modalForm.addClass('modal-form--show');
-	$popupForm.addClass('popup--show');
-});
+closeFormBtn.onclick = function () {
+	overlay.classList.remove('modal-overlay--show');
+	popupForm.classList.remove('popup--show');
+};
 
-// popup map show
-$('.about__map-link').on('click', function (e) {
-	e.preventDefault();
-	$modalMap.addClass('modal-map--show');
-	$popupMap.addClass('popup--show');
-});
+// popup map
+mapBtn.onclick = function (evt) {
+	evt.preventDefault();
+	overlay.classList.add('modal-overlay--show');
+	popupMap.classList.add('popup--show');
+	closeMapBtn.focus();
+};
 
-// popup hide
-$('.modal__close').on('click', function () {
-	$modalForm.removeClass('modal-form--show');
-	$modalMap.removeClass('modal-map--show');
-	$popupForm.removeClass('popup-form--show');
-});
+closeMapBtn.onclick = function () {
+	overlay.classList.remove('modal-overlay--show');
+	popupMap.classList.remove('popup--show');
+};
 
 // popup hide from overlay click
-$('.modal-overlay').on('click', function () {
-	$modalForm.removeClass('modal-form--show');
-	$modalMap.removeClass('modal-map--show');
-});
+overlay.onclick = function () {
+	overlay.classList.remove('modal-overlay--show');
+	popupForm.classList.remove('popup--show');
+	popupMap.classList.remove('popup--show');
+};
