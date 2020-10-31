@@ -151,15 +151,17 @@
                 <div class="filter__toggle-wrapper toggle-min">
                   <div class="filter__price-toggle" tabindex="0"></div>
                   <div class="price-wrapper price-wrapper--min">
-                    <span>от</span>
-                    <input class="filter__price filter__price-min" type="number" name="min-price" value="0" min="0">
+										<span>от</span>
+										<label class="visually-hidden" for="min-price" aria-label="введите минимальную цену"></label>
+                    <input class="filter__price filter__price-min" type="number" name="min-price" id="min-price" value="0" min="0">
                   </div>
                 </div>
                 <div class="filter__toggle-wrapper toggle-max">
                   <div class="filter__price-toggle" tabindex="0"></div>
                   <div class="price-wrapper price-wrapper--max">
-                    <span>до</span>
-                    <input class="filter__price filter__price-max" type="number" name="max-price" value="5000"
+										<span>до</span>
+										<label class="visually-hidden" for="max-price" aria-label="введите максимальную цену"></label>
+                    <input class="filter__price filter__price-max" type="number" name="max-price" id="max-price" value="5000"
                       max="5000">
                   </div>
                 </div>
