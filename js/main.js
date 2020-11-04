@@ -10,36 +10,25 @@ $(document).ready(function(){
 	});
 });
 
-//service slider on jQuery
-const $navLink = $('.services__nav-link');
-const $deliveryContent = $('#delivery-content');
-const $warrantyContent = $('#warranty-content');
-const $creditContent = $('#credit-content');
+//service slider
+const itemLinks = document.querySelectorAll('.services__nav-item'),
+    contentItems = document.querySelectorAll('.services__content-item');
 
+let catchActiveLink = function(activeItem, indexItem) {
+    activeItem.onclick = function(evt) {
+        evt.preventDefault();
+        for (let i = 0; i < itemLinks.length; i++) {
+            itemLinks[i].classList.remove('services__nav-item--active');
+            contentItems[i].classList.remove('services__content-item--active');
+        }
+        activeItem.classList.add('services__nav-item--active');
+        contentItems[indexItem].classList.add('services__content-item--active');
+    }
+}
 
-$navLink.on('click', function (evt) {
-	evt.preventDefault();
-	$(this).parent().addClass('services__nav-item--active');
-	$navLink.not(this).parent().removeClass('services__nav-item--active');
-});
-
-$('#delivery-link').on('click', function () {
-	$deliveryContent.addClass('services__content-item--active');
-	$warrantyContent.removeClass('services__content-item--active');
-	$creditContent.removeClass('services__content-item--active');
-});
-
-$('#warranty-link').on('click', function () {
-	$warrantyContent.addClass('services__content-item--active');
-	$deliveryContent.removeClass('services__content-item--active');
-	$creditContent.removeClass('services__content-item--active');
-});
-
-$('#credit-link').on('click', function () {
-	$creditContent.addClass('services__content-item--active');
-	$deliveryContent.removeClass('services__content-item--active');
-	$warrantyContent.removeClass('services__content-item--active');
-});
+for (i = 0; i < itemLinks.length; i++) {
+    catchActiveLink(itemLinks[i], i);
+}
 
 //popup
 const overlay = document.querySelector('.modal-overlay'),
